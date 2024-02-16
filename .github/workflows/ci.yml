@@ -25,13 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'  # Adjust this to your Node.js version requirement
-          registry-url: 'https://registry.npmjs.org/'
-          
       - name: Run markdown lint
         run: |
-          npm install remark-cli remark-preset-lint-consistent
-          npx remark . --use remark-preset-lint-consistent --frail
+          npm install remark-cli remark-preset-lint-consistent 
+          npx remark . --use remark-preset-lint-consistent --frail --setting emphasis-marker:'_'
